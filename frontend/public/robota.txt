@@ -1,0 +1,7 @@
+safemind/
+  public/
+    index.html
+    robots.txt   ✅
+  src/
+    components/
+    App.js
