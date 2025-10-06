@@ -1,8 +1,8 @@
 // SafeMindInput.jsx
 import React from "react";
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/UI/input";
 
-export default function SafeMindInput({ label, description, error, ...props }) {
+export default function Input({ label, description, error, ...props }) {
   return (
     <div className="flex flex-col space-y-1">
       {label && <label className={`text-sm font-medium ${error ? "text-destructive" : "text-foreground"}`}>

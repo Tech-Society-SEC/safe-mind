@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
-import Login from "./components/Login";
+import Login from "./components/Login"
 import SignIn from "./components/Signin";
 import SafeMindLayout from "./components/SafeMindLayout";
 
