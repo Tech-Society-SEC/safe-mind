@@ -38,7 +38,7 @@ const playlists = [
   },
 ];
 
-export function MusicPlaylist() {
+export default function MusicPlaylist() {
   const [activePlaylist, setActivePlaylist] = useState(0);
   const [playingSong, setPlayingSong] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");

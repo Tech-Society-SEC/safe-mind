@@ -70,7 +70,7 @@ const Textarea = ({ value, onChange, placeholder, style }) => (
   />
 );
 
-export function MoodTracker() {
+export default function MoodTracker() {
   const [selectedMood, setSelectedMood] = useState(null);
   const [note, setNote] = useState("");
 

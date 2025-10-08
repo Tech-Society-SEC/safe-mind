@@ -1,22 +1,14 @@
-// SafeMindLabel.jsx
+// label.jsx
 import React from "react";
-import { Label } from "@/components/ui/label";
 
-export default function SafeMindLabel({ children, htmlFor, error, className, ...props }) {
+export const Label = ({ children, htmlFor, error = false, className = "", ...props }) => {
   return (
-    <Label
+    <label
       htmlFor={htmlFor}
-      className={`${error ? "text-destructive" : ""} ${className}`}
+      className={`text-sm font-medium ${error ? "text-destructive" : "text-foreground"} ${className}`}
       {...props}
     >
       {children}
-    </Label>
+    </label>
   );
-}
-
-// Usage Example
-/*
-<SafeMindLabel htmlFor="username" error={formErrors.username}>
-  Username
-</SafeMindLabel>
-*/
+};

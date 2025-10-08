@@ -65,7 +65,7 @@ const Avatar = ({ children, style }) => (
   </div>
 );
 
-export function ChatInterface() {
+export default function ChatInterface() {
   const [messages, setMessages] = useState([
     {
       id: '1',

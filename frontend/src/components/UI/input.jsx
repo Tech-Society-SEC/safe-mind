@@ -1,33 +1,24 @@
-// SafeMindInput.jsx
+// input.jsx
 import React from "react";
-import { Input } from "@/components/UI/input";
+import { Label } from "./label";
 
-export default function Input({ label, description, error, ...props }) {
-  return (
-    <div className="flex flex-col space-y-1">
-      {label && <label className={`text-sm font-medium ${error ? "text-destructive" : "text-foreground"}`}>
-        {label}
-      </label>}
-      
-      <Input {...props} className={`${error ? "border-destructive focus:ring-destructive" : ""}`} />
-      
-      {description && !error && (
-        <p className="text-xs text-muted-foreground">{description}</p>
-      )}
-      {error && (
-        <p className="text-xs font-medium text-destructive">{error}</p>
-      )}
-    </div>
-  );
-}
-
-// Usage Example
-/*
-<SafeMindInput
-  type="text"
-  label="Username"
-  placeholder="Enter your username"
-  description="This will be visible to others"
-  error={formErrors.username}
-/>
-*/
+export const Input = React.forwardRef(
+  ({ label, htmlFor, error = false, className = "", ...props }, ref) => {
+    return (
+      <div className="flex flex-col w-full">
+        {label && <Label htmlFor={htmlFor} error={!!error}>{label}</Label>}
+        <input
+          id={htmlFor}
+          ref={ref}
+          className={`border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary ${
+            error ? "border-destructive" : "border-gray-300"
+          } ${className}`}
+          {...props}
+        />
+        {error && typeof error === "string" && (
+          <span className="text-sm text-destructive mt-1">{error}</span>
+        )}
+      </div>
+    );
+  }
+);

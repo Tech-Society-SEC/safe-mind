@@ -4,7 +4,7 @@ import { Button } from "@/components/UI/button";
 import { Input } from "@/components/UI/input";
 import { Label } from "@/components/UI/label";
 
-export function Signin({ onSignup }) {
+export default function Signin({ onSignup }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

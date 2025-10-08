@@ -80,7 +80,7 @@ const professionalResources = [
   { name: "SAMHSA Helpline", phone: "1-800-662-4357", description: "Treatment referral service" }
 ];
 
-export function EmergencyContacts() {
+export default function EmergencyContacts() {
   const [contacts, setContacts] = useState(emergencyContacts);
   const [isAddingContact, setIsAddingContact] = useState(false);
   const [newContact, setNewContact] = useState({ name: "", relationship: "", phone: "", notes: "", priority: 'medium', available24h: false });

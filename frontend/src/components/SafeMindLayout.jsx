@@ -22,7 +22,7 @@ const sidebarItems = [
   { id: "settings", label: "Settings", icon: Settings, color: "text-muted-foreground" },
 ];
 
-export function SafeMindLayout({ children, activeSection, onSectionChange }) {
+export default function SafeMindLayout({ children, activeSection, onSectionChange }) {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
