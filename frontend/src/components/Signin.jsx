@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Card } from "@/components/UI/card";
 import { Button } from "@/components/UI/button";
 import { Input } from "@/components/UI/input";
 import { Label } from "@/components/UI/label";
 
+
 export default function Signin({ onSignup }) {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,6 +24,8 @@ export default function Signin({ onSignup }) {
     console.log("Signing up with:", { name, email, password });
     setError("");
     if (onSignup) onSignup({ name, email });
+
+    navigate("/dashboard");
   };
 
   return (
@@ -79,9 +84,13 @@ export default function Signin({ onSignup }) {
         </form>
 
         <p className="text-sm text-muted-foreground mt-4 text-center">
-          Already have an account? <span className="text-primary font-medium cursor-pointer">Login</span>
+          Already have an account?<Link to="/login" className="text-primary font-medium ml-1">
+          Login
+        </Link>
         </p>
       </Card>
     </div>
   );
 }
+
+
