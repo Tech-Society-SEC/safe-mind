@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import Login from "./components/Login";
-import SignIn from "./components/Signin";
+import Signin from "./components/Signin"; // ✅ match the exact file name
 import SafeMindLayout from "./components/SafeMindLayout";
 
 import ChatInterface from "./components/ChatInterface";
@@ -21,7 +21,7 @@ function App() {
         path="/login"
         element={<Login onLogin={() => setIsLoggedIn(true)} />}
       />
-      <Route path="/signin" element={<SignIn />} />
+      <Route path="/signin" element={<Signin />} />
 
       {/* Protected Dashboard routes */}
       <Route

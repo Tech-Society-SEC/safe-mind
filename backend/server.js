@@ -1,25 +1,39 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-const authRoutes = require('./routes/auth');
+// server.js
 
+import express from 'express';
+import dotenv from 'dotenv';
+import cors from 'cors'; // Required for frontend connection
+import { connectDB } from './config/db.js'; // Your DB file
+import userRoutes from './routes/userRoutes.js'; // We will create this
+// import postRoutes from './routes/postRoutes.js'; // Example for other routes
+
+// Load environment variables from .env file
 dotenv.config();
+
+// Connect to Database
+connectDB();
+
 const app = express();
 
-app.listen(process.env.PORT, () => {
-  console.log("server running")
-})
+// --- CRITICAL MIDDLEWARE FOR FRONTEND CONNECTION ---
+// 1. Enable CORS: Allows your frontend (e.g., localhost:3000) to talk to the backend.
+app.use(cors());
 
-// Middleware
-// app.use(express.json());
+// 2. Body Parser: Essential for reading JSON data sent from the frontend (req.body).
+app.use(express.json());
 
-// Routes
-// app.use('/api/auth', authRoutes);
+// --- ROUTES SETUP ---
+// Define the base path for your authentication routes
+// Frontend will call: http://localhost:5000/api/users/login
+app.use('/api/users', userRoutes); 
+// app.use('/api/posts', postRoutes); // Example
 
-// // Connect to MongoDB and start server
-// mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-//   .then(() => {
-//     console.log('Connected to MongoDB');
-//     app.listen(process.env.PORT, () => console.log(`Server running on port ${process.env.PORT}`));
-//   })
-//   .catch(err => console.log(err));
+// Simple test route
+app.get('/', (req, res) => {
+    res.send('API is running...');
+});
+
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
