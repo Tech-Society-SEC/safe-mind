@@ -53,7 +53,7 @@ export default function SafeMindLayout({ children, activeSection, onSectionChang
                 "font-bold text-primary transition-all duration-300",
                 sidebarOpen ? "text-2xl" : "md:text-lg"
               )}>
-                {sidebarOpen ? "WellnessChat" : "WC"}
+                {sidebarOpen ? "SafeMind" : "SM"}
               </h1>
               {sidebarOpen && (
                 <p className="text-sm text-muted-foreground mt-1">

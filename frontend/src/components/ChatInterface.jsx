@@ -122,7 +122,7 @@ export default function ChatInterface() {
     <Card style={{ height: "100%" }}>
       {/* Chat header */}
       <div style={{ padding: 16, borderBottom: "1px solid #ccc", display: "flex", alignItems: "center", gap: 12 }}>
-        <Avatar>WC</Avatar>
+        <Avatar>SA</Avatar>
         <div>
           <h2 style={{ margin: 0, fontWeight: "bold" }}>SafeMind Assistant</h2>
           <p style={{ margin: 0, fontSize: 12, color: "#666" }}>Always here to listen and support</p>
